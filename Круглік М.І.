@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int t1, t2, t3;
+    double total_time;
+
+    // Read input values
+    printf("Введіть три значення\n");
+    scanf("%d %d %d", &t1, &t2, &t3);
+    
+     // Check if any input value exceeds 10000
+        if (t1 > 10000 || t2 > 10000 || t3 > 10000) {
+        printf("Значення не повинні перевищувати 10000.\n");
+        return 1;
+    }
+
+    // Calculate the total time
+    total_time = 1.0 / t1 + 1.0 / t2 + 1.0 / t3;
+    total_time = 1.0 / total_time;
+
+    // Print the result rounded to 2 decimal places
+    printf("Час, необхідний для з'їдання пирога: %.2lf\n", total_time);
+
+    return 0;
+}
