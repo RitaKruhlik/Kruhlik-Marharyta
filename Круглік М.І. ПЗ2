@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+// Знаходження НСД
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+
+// Знаходження НСК
+int lcm(int a, int b) {
+    return (a * b) / gcd(a, b);
+}
+
+int main() {
+// Введення кількості чисел
+    int p;
+    scanf("%d", &p);
+// Перевірка чи 2 ≤ р ≤ 20  
+        if (p < 2 || p > 20) {
+        printf("Кількість чисел повинна бути від 2 до 20.\n");
+        return 1;
+    }
+// Введення чисел
+    int numbers[p];
+    for (int i = 0; i < p; i++) {
+        scanf("%d", &numbers[i]);
+    }
+// Обчислення НСК для всіх введених чисел    
+    int result = numbers[0];
+    for (int i = 1; i < p; i++) {
+        result = lcm(result, numbers[i]);
+    }
+// Виведення результату
+    printf("%d\n", result);
+
+    return 0;
+}
