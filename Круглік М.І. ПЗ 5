@@ -21,7 +21,7 @@ int main() {
     printf("Введіть довжину послідовності n: ");
     scanf("%d", &n);
 
-    int result = countSequences(n);
+    int result = countSequences(n); // Обчислюємо кількість шуканих послідовностей.
     printf("Кількість шуканих послідовностей: %d\n", result);
 
     return 0;
