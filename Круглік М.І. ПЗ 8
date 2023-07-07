@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int factorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+int countA(char *word) {
+    int length = strlen(word);
+    int count[26] = {0};  // Масив для зберігання кількості кожного символу
+    
+    // Конвертуємо слово в верхній регістр
+    for (int i = 0; i < length; i++) {
+        word[i] = toupper(word[i]);
+    }
+    
+    // Рахуємо кількість входжень кожного символу в слово
+    for (int i = 0; i < length; i++) {
+        count[word[i] - 'A']++;
+    }
+    
+    int numA = factorial(length);
+    
+    // Ділимо на факторіал кожної кількості символів, щоб уникнути дублікатів
+    for (int i = 0; i < 26; i++) {
+        if (count[i] > 1) {
+            numA /= factorial(count[i]);
+        }
+    }
+    
+    return numA;
+}
+
+int main() {
+    char word[15];
+    printf("Введіть слово: ");
+    scanf("%s", word);
+    
+    int numA = countA(word);
+    printf("Кількість анаграм: %d\n", numA);
+    
+    return 0;
+}
