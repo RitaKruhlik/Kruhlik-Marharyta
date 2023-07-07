@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-int calculateIntersectionPoints(double x1, double y1, double r1, double x2, double y2, double r2) {
+int calculateIntersecPoints(double x1, double y1, double r1, double x2, double y2, double r2) {
     double distance = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
 
     if (distance > r1 + r2) {
@@ -23,8 +23,8 @@ int main() {
     printf("Введіть координати та радіуси двох колів (х1 y1 r1 х2 y2 r2):\n");
     scanf("%lf %lf %lf %lf %lf %lf", &x1, &y1, &r1, &x2, &y2, &r2);
     // Визначення кількості точок перетину
-    int intersectionPoints = calculateIntersectionPoints(x1, y1, r1, x2, y2, r2);
-    printf("Кількість точок перетину:\n%d", intersectionPoints);
+    int intersecPoints = calculateIntersecPoints(x1, y1, r1, x2, y2, r2);
+    printf("Кількість точок перетину:\n%d", intersecPoints);
 
     return 0;
 }
