@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <math.h>
+
+double calculateVectorLength(int x1, int y1, int x2, int y2) {
+    int deltaX = x2 - x1;  // Обчислюємо різницю між координатами x2 та x1
+    int deltaY = y2 - y1;  // Обчислюємо різницю між координатами y2 та y1
+    double length = sqrt(deltaX * deltaX + deltaY * deltaY);  // Обчислюємо довжину вектора за формулою Евкліда
+    return length;  // Повертаємо обчислену довжину
+}
+
+int main() {
+    int x1, y1, x2, y2;
+    printf("Введіть координати початку та кінця вектора (x1 y1 x2 y2):\n");  // Виводимо повідомлення для введення координат
+    scanf("%d %d %d %d", &x1, &y1, &x2, &y2);  // Зчитуємо координати з клавіатури
+    double vectorLength = calculateVectorLength(x1, y1, x2, y2);  // Обчислюємо довжину вектора за допомогою calculateVectorLength
+    printf("Довжина вектора: %.6f\n", vectorLength);  // Виводимо обчислену довжину вектора з точністю до шести знаків після коми
+
+    return 0;
+}
