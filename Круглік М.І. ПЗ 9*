@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <stdint.h>
+
+int minS(int x, int y) {
+    int steps = 0;
+    int diff = abs(y - x);
+
+    if (diff == 0)
+        return 0;
+    else if (diff == 1)
+        return 1;
+    // Обчислення мінімальної кількості кроків для переходу від x до y
+    // Перевірка, чи різниця парна або непарна
+    if (diff % 2 == 0) {
+    // Якщо різниця парна, її можна подолати за (diff / 2) + 1 крок
+        steps = diff / 2 + 1;
+    } else {
+    // Якщо різниця непарна, її можна подолати за (diff / 2) + 2 кроки
+        steps = diff / 2 + 2;
+    }
+
+    return steps;
+}
+
+int main() {
+    int x, y;
+    printf("Введіть значення x та y:\n");
+    scanf("%d %d", &x, &y);
+
+    // Перевірка, чи знаходяться x та y у діапазоні 0 <= x <= y < 2^31
+    bool Range = (x >= 0 && y >= 0 && y < (1U << 31) && x <= y);
+
+    if (Range) {
+    // Виклик функції minS для обчислення мінімальної кількості кроків
+        int result = minS(x, y);
+    // Виведення результату
+        printf("Мінімальна кількість кроків: %d\n", result);
+    } else {
+        printf("Неправильний діапазон значень.\n");
+    }
+
+    return 0;
+}
